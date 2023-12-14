@@ -41,7 +41,7 @@ fun ExplorerItem(index: Int) {
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxHeight()
-                        .clip(RoundedCornerShape(10)),
+                        .clip(RoundedCornerShape(8)),
                     painter = painterResource(id = pictureList[targetImageIndex].id)
                 )
                 targetImageIndex++
@@ -63,7 +63,7 @@ fun ExplorerItem(index: Int) {
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxHeight()
-                        .clip(RoundedCornerShape(10)),
+                        .clip(RoundedCornerShape(8)),
                     painter = painterResource(id = pictureList[targetImageIndex].id)
                 )
             }
@@ -104,7 +104,7 @@ private fun GridImages(modifier: Modifier, targetImageIndex: Int) {
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxWidth()
-                                .clip(RoundedCornerShape(10)),
+                                .clip(RoundedCornerShape(8)),
                             contentScale = ContentScale.Crop
                         )
                     }
