@@ -1,9 +1,8 @@
-# Compozist
+# Compozist🚀
 
 Compozist is a project that showcases various types of lists that can be created using Android Jetpack Compose. It aims to provide a sample for developers who want to learn how to use the Compose UI framework to build complex and dynamic lists.
 
-## Screenshots
-
+## Screenshots🖼️
 Here are some screenshots of the app:
 
 ![Screenshot 1](image_url_1)
@@ -18,8 +17,7 @@ To run the app, you need to have Android Studio Arctic Fox or higher, and a devi
 
 Compozist is licensed under the MIT License. See the [LICENSE](license_url) file for more details.
 
-## Contribution
-
+## Contribution🤝
 Compozist is an open source project and welcomes contributions from anyone who is interested in improving it. If you want to contribute, you can follow these steps:
 
 - Fork the project on GitHub and clone your fork to your local machine.
