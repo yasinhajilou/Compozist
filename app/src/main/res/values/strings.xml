@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">LazyListSample</string>
-    <string name="welcome_content">Lists in Jetpack Compose,\n heros without capes!</string>
+    <string name="welcome_content">Lists in Jetpack Compose,\n heroes without capes!</string>
     <string name="welcome_btn_content">What\'s Next?</string>
 </resources>
