@@ -10,9 +10,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.lazylistsample.pictureList
 
+const val LIST_ROW_SIZE = 5
+
 @Composable
 fun ExplorerScreen() {
-    val parentListSize = (pictureList.size / 5) + (pictureList.size % 5)
+    val parentListSize = (pictureList.size / LIST_ROW_SIZE) + (pictureList.size % LIST_ROW_SIZE)
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         modifier = Modifier.fillMaxSize(),
