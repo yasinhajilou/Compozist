@@ -48,13 +48,14 @@ private const val LIST_ITEM_COUNT = 6
 @Composable
 fun WelcomeScreen(onNextButtonClicked: () -> Unit) {
     Surface(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier =
+            Modifier
+                .fillMaxSize(),
     ) {
         LoopLists()
         BottomDetails(
             modifier = Modifier,
-            onNextButtonClicked = onNextButtonClicked
+            onNextButtonClicked = onNextButtonClicked,
         )
     }
 }
@@ -64,46 +65,51 @@ fun LoopLists() {
     Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.tertiaryContainer)) {
         Column(
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(6f)
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .weight(6f),
         ) {
             repeat(3) {
-                //reverse direction of the middle list
+                // reverse direction of the middle list
                 CircularList(
                     circularListIndex = it,
                     reverse = it % 2 == 0,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 )
             }
         }
         Spacer(modifier = Modifier.weight(2f))
     }
-
 }
 
 @Composable
-fun BottomDetails(modifier: Modifier, onNextButtonClicked: () -> Unit) {
+fun BottomDetails(
+    modifier: Modifier,
+    onNextButtonClicked: () -> Unit,
+) {
     Column(
-        modifier = modifier
-            .fillMaxSize(),
+        modifier =
+            modifier
+                .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.weight(5f))
         Column(
-            modifier = Modifier
-                .weight(3f)
-                .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.primaryContainer),
+            modifier =
+                Modifier
+                    .weight(3f)
+                    .fillMaxSize()
+                    .background(color = MaterialTheme.colorScheme.primaryContainer),
             verticalArrangement = Arrangement.SpaceAround,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = stringResource(R.string.welcome_content),
                 textAlign = TextAlign.Center,
                 fontSize = 20.sp,
-                fontStyle = FontStyle.Italic
+                fontStyle = FontStyle.Italic,
             )
             NextButton(onButtonClicked = onNextButtonClicked)
         }
@@ -112,21 +118,23 @@ fun BottomDetails(modifier: Modifier, onNextButtonClicked: () -> Unit) {
 
 @Composable
 fun NextButton(onButtonClicked: () -> Unit) {
-    var showLoading by rememberSaveable() {
+    var showLoading by rememberSaveable {
         mutableStateOf(false)
     }
     val widthDp by animateDpAsState(
         targetValue = if (showLoading) 82.dp else 164.dp,
         animationSpec = tween(),
-        label = "width_anim"
+        label = "width_anim",
     )
     Button(
         onClick = {
             showLoading = !showLoading
             onButtonClicked()
-        }, modifier = Modifier
-            .height(64.dp)
-            .width(widthDp)
+        },
+        modifier =
+            Modifier
+                .height(64.dp)
+                .width(widthDp),
     ) {
         if (showLoading) {
             CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
@@ -144,7 +152,8 @@ fun CircularList(
     modifier: Modifier,
     circularListIndex: Int,
     reverse: Boolean,
-    listState: LazyListState = rememberLazyListState(initialFirstVisibleItemIndex = Int.MAX_VALUE / 2)
+    listState: LazyListState =
+        rememberLazyListState(initialFirstVisibleItemIndex = Int.MAX_VALUE / 2),
 ) {
     val firstPicIndex = (circularListIndex * LIST_ITEM_COUNT)
     val lastPicIndex = firstPicIndex + LIST_ITEM_COUNT
@@ -154,7 +163,7 @@ fun CircularList(
         modifier = modifier,
         state = listState,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
-        userScrollEnabled = false
+        userScrollEnabled = false,
     ) {
         items(Int.MAX_VALUE) { index ->
             val itemIndex = index % LIST_ITEM_COUNT
@@ -168,7 +177,7 @@ fun CircularList(
                 reverse = reverse,
                 index = circularListIndex,
                 animationSpec = animationSpec,
-                listState = listState
+                listState = listState,
             )
         }
     }
@@ -178,7 +187,7 @@ private suspend fun smoothScrollWithAnimation(
     reverse: Boolean,
     index: Int,
     animationSpec: AnimationSpec<Float>,
-    listState: LazyListState
+    listState: LazyListState,
 ) {
     var previousValue = if (reverse) SCROLL_SPEEDS[index] else 0f
     val initValue = if (reverse) SCROLL_SPEEDS[index] else 0f
@@ -187,7 +196,7 @@ private suspend fun smoothScrollWithAnimation(
         animate(
             initialValue = initValue,
             targetValue = targetValue,
-            animationSpec = animationSpec
+            animationSpec = animationSpec,
         ) { currentValue, _ ->
             previousValue += scrollBy(currentValue - previousValue)
         }

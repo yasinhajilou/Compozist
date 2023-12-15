@@ -21,10 +21,11 @@ fun ExplorerScreen() {
     val parentListSize = (pictureList.size / LIST_ROW_SIZE) + (pictureList.size % LIST_ROW_SIZE)
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(4.dp),
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.surface),
-        contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp)
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.surface),
+        contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp),
     ) {
         items(parentListSize) { index ->
             ExplorerItem(index = index)

@@ -11,13 +11,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 
 @Composable
-fun LazyListItem(@DrawableRes drawableId: Int) {
+fun LazyListItem(
+    @DrawableRes drawableId: Int,
+) {
     Image(
         painter = painterResource(id = drawableId),
         contentScale = ContentScale.FillBounds,
         contentDescription = "List Item",
-        modifier = Modifier
-            .aspectRatio(1f)
-            .clip(RoundedCornerShape(16))
+        modifier =
+            Modifier
+                .aspectRatio(1f)
+                .clip(RoundedCornerShape(16)),
     )
 }

@@ -18,53 +18,57 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.lazylistsample.pictureList
 
-//2*2 Grid list, size of 4
+// 2*2 Grid list, size of 4
 const val GRID_LIST_CELL_SIZE = 4
 
 @Composable
 fun ExplorerItem(index: Int) {
     Row(
-        modifier = Modifier
-            .height(240.dp)
-            .fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        modifier =
+            Modifier
+                .height(240.dp)
+                .fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         val indexRemainder = index % 2
 
         val firstImageIndex = index + (index * GRID_LIST_CELL_SIZE)
         var targetImageIndex = firstImageIndex
 
-        //in even items, we compose the large picture first
+        // in even items, we compose the large picture first
         if (indexRemainder == 0) {
             CheckSizeThenCompose(currentIndex = targetImageIndex) {
                 LargeImage(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxHeight()
-                        .clip(RoundedCornerShape(8)),
-                    painter = painterResource(id = pictureList[targetImageIndex].id)
+                    modifier =
+                        Modifier
+                            .weight(1f)
+                            .fillMaxHeight()
+                            .clip(RoundedCornerShape(8)),
+                    painter = painterResource(id = pictureList[targetImageIndex].id),
                 )
                 targetImageIndex++
             }
         }
 
         GridImages(
-            modifier = Modifier
-                .weight(2f)
-                .fillMaxHeight(),
-            targetImageIndex = targetImageIndex
+            modifier =
+                Modifier
+                    .weight(2f)
+                    .fillMaxHeight(),
+            targetImageIndex = targetImageIndex,
         )
 
-        //in odd items, we compose the large picture last
+        // in odd items, we compose the large picture last
         if (indexRemainder == 1) {
             targetImageIndex += GRID_LIST_CELL_SIZE
             CheckSizeThenCompose(currentIndex = targetImageIndex) {
                 LargeImage(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxHeight()
-                        .clip(RoundedCornerShape(8)),
-                    painter = painterResource(id = pictureList[targetImageIndex].id)
+                    modifier =
+                        Modifier
+                            .weight(1f)
+                            .fillMaxHeight()
+                            .clip(RoundedCornerShape(8)),
+                    painter = painterResource(id = pictureList[targetImageIndex].id),
                 )
             }
         }
@@ -72,7 +76,10 @@ fun ExplorerItem(index: Int) {
 }
 
 @Composable
-fun LargeImage(modifier: Modifier, painter: Painter) {
+fun LargeImage(
+    modifier: Modifier,
+    painter: Painter,
+) {
     Image(
         painter = painter,
         contentDescription = "Large Image",
@@ -82,30 +89,35 @@ fun LargeImage(modifier: Modifier, painter: Painter) {
 }
 
 @Composable
-private fun GridImages(modifier: Modifier, targetImageIndex: Int) {
+private fun GridImages(
+    modifier: Modifier,
+    targetImageIndex: Int,
+) {
     var targetIndex = targetImageIndex
-    //making a 2*2 Grid List
+    // making a 2*2 Grid List
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         repeat(2) {
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                verticalArrangement = Arrangement.spacedBy(4.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .fillMaxHeight(),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 repeat(2) {
                     CheckSizeThenCompose(currentIndex = targetIndex) {
                         Image(
                             painter = painterResource(id = pictureList[targetIndex].id),
                             contentDescription = "Independent Item",
-                            modifier = Modifier
-                                .weight(1f)
-                                .fillMaxWidth()
-                                .clip(RoundedCornerShape(8)),
-                            contentScale = ContentScale.Crop
+                            modifier =
+                                Modifier
+                                    .weight(1f)
+                                    .fillMaxWidth()
+                                    .clip(RoundedCornerShape(8)),
+                            contentScale = ContentScale.Crop,
                         )
                     }
                     targetIndex++
@@ -118,7 +130,7 @@ private fun GridImages(modifier: Modifier, targetImageIndex: Int) {
 @Composable
 fun CheckSizeThenCompose(
     currentIndex: Int,
-    composable: @Composable () -> Unit
+    composable: @Composable () -> Unit,
 ) {
     if (currentIndex <= pictureList.size - 1) {
         composable()

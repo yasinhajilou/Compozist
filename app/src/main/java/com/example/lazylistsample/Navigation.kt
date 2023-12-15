@@ -7,12 +7,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.lazylistsample.ui.explorer.ExplorerScreen
 import com.example.lazylistsample.ui.welcome.WelcomeScreen
 
-
 @Composable
 fun AppNavHost() {
     val navController = rememberNavController()
     NavHost(
-        navController = navController, startDestination = "welcome"
+        navController = navController,
+        startDestination = "welcome",
     ) {
         composable(route = "welcome") {
             WelcomeScreen {
