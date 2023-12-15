@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.diffplug.spotless") version "6.23.3"
+    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
 }
 
 android {
@@ -68,13 +68,16 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
 
-spotless {
-    kotlin {
-        ktlint("1.0.1")
-            .customRuleSets(
-                listOf(
-                    "io.nlopez.compose.rules:ktlint:0.3.3"
-                )
-            )
+configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+    android.set(true)
+    ignoreFailures.set(false)
+    disabledRules.set(setOf("final-newline"))
+    reporters {
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
+    }
+
+    filter {
+        exclude("**/generated/**")
     }
 }
