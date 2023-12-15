@@ -67,3 +67,14 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
+
+spotless {
+    kotlin {
+        ktlint("1.0.1")
+            .customRuleSets(
+                listOf(
+                    "io.nlopez.compose.rules:ktlint:0.3.3"
+                )
+            )
+    }
+}
