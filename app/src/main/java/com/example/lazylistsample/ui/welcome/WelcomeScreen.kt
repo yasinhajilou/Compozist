@@ -1,5 +1,6 @@
 package com.example.lazylistsample.ui.welcome
 
+import android.content.res.Configuration
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animate
@@ -30,7 +31,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lazylistsample.R
 import com.example.lazylistsample.pictureList
+import com.example.lazylistsample.theme.AppTheme
 import kotlinx.coroutines.isActive
 
 private val SCROLL_SPEEDS = arrayOf(45f, 40f, 30f)
@@ -60,7 +61,7 @@ fun WelcomeScreen(onNextButtonClicked: () -> Unit) {
 
 @Composable
 fun LoopLists() {
-    Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.onSurface)) {
+    Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.tertiaryContainer)) {
         Column(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier
@@ -94,7 +95,7 @@ fun BottomDetails(modifier: Modifier, onNextButtonClicked: () -> Unit) {
             modifier = Modifier
                 .weight(3f)
                 .fillMaxSize()
-                .background(Color.LightGray),
+                .background(color = MaterialTheme.colorScheme.primaryContainer),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -193,8 +194,11 @@ private suspend fun smoothScrollWithAnimation(
     }
 }
 
-@Preview
+@Preview(name = "light mode")
+@Preview(name = "dark mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun WelcomeScreenPreview() {
-    WelcomeScreen({})
+    AppTheme {
+        WelcomeScreen({})
+    }
 }
