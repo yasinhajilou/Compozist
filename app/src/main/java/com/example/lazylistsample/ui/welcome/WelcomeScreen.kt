@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
@@ -89,8 +90,7 @@ fun BottomDetails(
     onNextButtonClicked: () -> Unit,
 ) {
     Column(
-        modifier =
-        modifier
+        modifier = modifier
             .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -101,7 +101,8 @@ fun BottomDetails(
             Modifier
                 .weight(3f)
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.primaryContainer),
+                .background(color = MaterialTheme.colorScheme.primaryContainer)
+                .navigationBarsPadding(),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
