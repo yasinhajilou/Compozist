@@ -44,7 +44,7 @@ import com.example.lazylistsample.pictureList
 import com.example.lazylistsample.theme.AppTheme
 import kotlinx.coroutines.isActive
 
-private val SCROLL_SPEEDS = arrayOf(45f, 40f, 30f)
+private val scrollingSpeeds = arrayOf(45f, 40f, 30f)
 private const val LIST_ITEM_COUNT = 6
 
 @Composable
@@ -194,9 +194,9 @@ private suspend fun smoothScrollWithAnimation(
     animationSpec: AnimationSpec<Float>,
     listState: LazyListState,
 ) {
-    var previousValue = if (reverse) SCROLL_SPEEDS[index] else 0f
-    val initValue = if (reverse) SCROLL_SPEEDS[index] else 0f
-    val targetValue = if (reverse) 0f else SCROLL_SPEEDS[index]
+    var previousValue = if (reverse) scrollingSpeeds[index] else 0f
+    val initValue = if (reverse) scrollingSpeeds[index] else 0f
+    val targetValue = if (reverse) 0f else scrollingSpeeds[index]
     listState.scroll(MutatePriority.PreventUserInput) {
         animate(
             initialValue = initValue,
