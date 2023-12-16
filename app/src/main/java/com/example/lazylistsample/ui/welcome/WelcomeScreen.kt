@@ -31,6 +31,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
@@ -123,7 +124,7 @@ fun NextButton(onButtonClicked: () -> Unit) {
         mutableStateOf(false)
     }
     val widthDp by animateDpAsState(
-        targetValue = if (showLoading) 82.dp else 164.dp,
+        targetValue = if (showLoading) 82.dp else 140.dp,
         animationSpec = tween(),
         label = "width_anim",
     )
@@ -134,15 +135,18 @@ fun NextButton(onButtonClicked: () -> Unit) {
         },
         modifier =
         Modifier
-            .height(64.dp)
+            .height(46.dp)
             .width(widthDp),
     ) {
         if (showLoading) {
-            CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
+            CircularProgressIndicator(
+                color = MaterialTheme.colorScheme.onPrimary,
+                modifier = Modifier.align(CenterVertically),
+            )
         } else {
             Text(
                 text = stringResource(R.string.welcome_btn_content),
-                fontSize = 18.sp,
+                fontSize = 15.sp,
             )
         }
     }
