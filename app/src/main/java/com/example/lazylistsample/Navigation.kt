@@ -22,7 +22,7 @@ fun AppNavHost() {
             WelcomeScreen {
                 coroutineScope.launch {
                     // delay for making navigation a real life example
-                    delay(750)
+                    delay(1000)
                     navController.navigate("explorer") {
                         popUpTo(navController.findDestination("welcome")?.id ?: return@navigate) {
                             inclusive
