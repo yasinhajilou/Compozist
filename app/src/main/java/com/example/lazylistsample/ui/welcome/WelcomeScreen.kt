@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -104,7 +105,10 @@ fun BottomDetails(
             Modifier
                 .weight(3f)
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.primaryContainer)
+                .background(
+                    color = MaterialTheme.colorScheme.primaryContainer,
+                    shape = CutCornerShape(topStartPercent = 5, topEndPercent = 5),
+                )
                 .navigationBarsPadding(),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
