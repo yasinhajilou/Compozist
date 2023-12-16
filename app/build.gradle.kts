@@ -69,7 +69,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
 
-spotless { kotlin {
+spotless {
+    kotlin {
         target("**/*.kt", "**/*.kts")
         targetExclude("${layout.buildDirectory}/**/*.kt", "bin/**/*.kt", "buildSrc/**/*.kt")
 
