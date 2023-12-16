@@ -20,11 +20,13 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -133,10 +135,11 @@ fun NextButton(onButtonClicked: () -> Unit) {
             showLoading = !showLoading
             onButtonClicked()
         },
-        modifier =
-        Modifier
+        modifier = Modifier
             .height(46.dp)
             .width(widthDp),
+        enabled = !showLoading,
+        colors = ButtonDefaults.buttonColors(disabledContainerColor = MaterialTheme.colorScheme.primary),
     ) {
         if (showLoading) {
             CircularProgressIndicator(
@@ -148,6 +151,12 @@ fun NextButton(onButtonClicked: () -> Unit) {
                 text = stringResource(R.string.welcome_btn_content),
                 fontSize = 15.sp,
             )
+        }
+    }
+
+    DisposableEffect(key1 = Unit) {
+        onDispose {
+            showLoading = false
         }
     }
 }
