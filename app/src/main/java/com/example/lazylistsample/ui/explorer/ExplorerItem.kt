@@ -25,9 +25,9 @@ const val GRID_LIST_CELL_SIZE = 4
 fun ExplorerItem(index: Int) {
     Row(
         modifier =
-            Modifier
-                .height(240.dp)
-                .fillMaxWidth(),
+        Modifier
+            .height(240.dp)
+            .fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         val indexRemainder = index % 2
@@ -40,10 +40,10 @@ fun ExplorerItem(index: Int) {
             CheckSizeThenCompose(currentIndex = targetImageIndex) {
                 LargeImage(
                     modifier =
-                        Modifier
-                            .weight(1f)
-                            .fillMaxHeight()
-                            .clip(RoundedCornerShape(8)),
+                    Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .clip(RoundedCornerShape(8)),
                     painter = painterResource(id = pictureList[targetImageIndex].id),
                 )
                 targetImageIndex++
@@ -52,9 +52,9 @@ fun ExplorerItem(index: Int) {
 
         GridImages(
             modifier =
-                Modifier
-                    .weight(2f)
-                    .fillMaxHeight(),
+            Modifier
+                .weight(2f)
+                .fillMaxHeight(),
             targetImageIndex = targetImageIndex,
         )
 
@@ -64,10 +64,10 @@ fun ExplorerItem(index: Int) {
             CheckSizeThenCompose(currentIndex = targetImageIndex) {
                 LargeImage(
                     modifier =
-                        Modifier
-                            .weight(1f)
-                            .fillMaxHeight()
-                            .clip(RoundedCornerShape(8)),
+                    Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .clip(RoundedCornerShape(8)),
                     painter = painterResource(id = pictureList[targetImageIndex].id),
                 )
             }
@@ -102,9 +102,9 @@ private fun GridImages(
         repeat(2) {
             Column(
                 modifier =
-                    Modifier
-                        .weight(1f)
-                        .fillMaxHeight(),
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 repeat(2) {
@@ -113,10 +113,10 @@ private fun GridImages(
                             painter = painterResource(id = pictureList[targetIndex].id),
                             contentDescription = "Independent Item",
                             modifier =
-                                Modifier
-                                    .weight(1f)
-                                    .fillMaxWidth()
-                                    .clip(RoundedCornerShape(8)),
+                            Modifier
+                                .weight(1f)
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(8)),
                             contentScale = ContentScale.Crop,
                         )
                     }

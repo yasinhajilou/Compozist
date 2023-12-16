@@ -19,8 +19,8 @@ fun LazyListItem(
         contentScale = ContentScale.FillBounds,
         contentDescription = "List Item",
         modifier =
-            Modifier
-                .aspectRatio(1f)
-                .clip(RoundedCornerShape(16)),
+        Modifier
+            .aspectRatio(1f)
+            .clip(RoundedCornerShape(16)),
     )
 }

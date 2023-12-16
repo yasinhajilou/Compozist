@@ -22,9 +22,9 @@ fun ExplorerScreen() {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         modifier =
-            Modifier
-                .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.surface),
+        Modifier
+            .fillMaxSize()
+            .background(color = MaterialTheme.colorScheme.surface),
         contentPadding = PaddingValues(horizontal = 4.dp, vertical = 4.dp),
     ) {
         items(parentListSize) { index ->

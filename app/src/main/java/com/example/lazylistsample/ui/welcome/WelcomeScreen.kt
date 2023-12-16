@@ -49,8 +49,8 @@ private const val LIST_ITEM_COUNT = 6
 fun WelcomeScreen(onNextButtonClicked: () -> Unit) {
     Surface(
         modifier =
-            Modifier
-                .fillMaxSize(),
+        Modifier
+            .fillMaxSize(),
     ) {
         LoopLists()
         BottomDetails(
@@ -66,9 +66,9 @@ fun LoopLists() {
         Column(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .weight(6f),
+            Modifier
+                .fillMaxWidth()
+                .weight(6f),
         ) {
             repeat(3) {
                 // reverse direction of the middle list
@@ -90,18 +90,18 @@ fun BottomDetails(
 ) {
     Column(
         modifier =
-            modifier
-                .fillMaxSize(),
+        modifier
+            .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(modifier = Modifier.weight(5f))
         Column(
             modifier =
-                Modifier
-                    .weight(3f)
-                    .fillMaxSize()
-                    .background(color = MaterialTheme.colorScheme.primaryContainer),
+            Modifier
+                .weight(3f)
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.primaryContainer),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -132,9 +132,9 @@ fun NextButton(onButtonClicked: () -> Unit) {
             onButtonClicked()
         },
         modifier =
-            Modifier
-                .height(64.dp)
-                .width(widthDp),
+        Modifier
+            .height(64.dp)
+            .width(widthDp),
     ) {
         if (showLoading) {
             CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)

@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jlleitschuh.gradle.ktlint") version "12.0.3"
+    id("com.diffplug.spotless") version "6.23.3"
 }
 
 android {
@@ -69,20 +69,16 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
 
-configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
-    android.set(true)
-    ignoreFailures.set(false)
-    additionalEditorconfig.set(
-        mapOf(
-            "ktlint_function_naming_ignore_when_annotated_with" to "Composable",
-        ),
-    )
-    reporters {
-        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
-        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
-    }
+spotless {
+    kotlin {
+        target("**/*.kt", "**/*.kts")
+        targetExclude("${layout.buildDirectory}/**/*.kt", "bin/**/*.kt", "buildSrc/**/*.kt")
 
-    filter {
-        exclude("**/generated/**")
+        ktlint("1.0.1")
+            .editorConfigOverride(
+                mapOf(
+                    "ktlint_function_naming_ignore_when_annotated_with" to "Composable",
+                ),
+            )
     }
 }
