@@ -6,17 +6,21 @@
 
 Compozist is a project that showcases various types of lists that can be created using Android
 Jetpack Compose. It aims to provide a sample for developers who want to learn how to use the Compose
-UI framework to build complex and dynamic lists.
+UI frame
+work to build complex and dynamic lists.
 
 ## Screenshots 🖼️
 
 Here are some screenshots of the app:
 
 <p align="center">
-  <img src="https://github.com/yasinhajilou/Compozist/assets/41325533/51af8360-450d-46a9-86ea-4829e3389121" width="320" height="568">
-  <img src="https://github.com/yasinhajilou/Compozist/assets/41325533/585b2dcf-be86-4aa0-9f73-74b53949f53d" width="320" height="568">
-  <img src="https://github.com/yasinhajilou/Compozist/assets/41325533/c6148b78-c218-44ef-924e-ddf40735176c" width="320" height="568">
+   <img src="https://github.com/yasinhajilou/Compozist/assets/41325533/89204271-3af9-44c9-b00c-557427409e0e" width="160" height="300">
+   <img src="https://github.com/yasinhajilou/Compozist/assets/41325533/7c2744d5-9e7d-4ee9-b245-42abac338e3c" width="160" height="300">
+   <img src="https://github.com/yasinhajilou/Compozist/assets/41325533/5c693eb8-83bd-4ea8-ad8f-5c3b9f2a4105" width="160" height="300">
 </p>
+
+- WelcomeScreen has inspired by Imprint app
+* ExlorerScreen has inspired by Instagram app
 
 ## Installation
 
@@ -26,7 +30,7 @@ Android API level 24 or higher. You can clone the project from GitHub and open i
 ## License
 
 Compozist is licensed under the MIT License. See
-the [LICENSE]("https://github.com/yasinhajilou/Compozist/blob/main/LICENSE") file for more details.
+the [LICENSE](https://github.com/yasinhajilou/Compozist/blob/main/LICENSE) file for more details.
 
 ## Contribution 🤝
 
@@ -43,8 +47,8 @@ for your support!** 😊
 
 ## Code style
 
-This project uses [ktlint]("https://github.com/pinterest/ktlint"), provided via
-the [spotless]("https://github.com/pinterest/ktlint") Gradle plugin, and the bundled project
+This project uses [ktlint](https://github.com/pinterest/ktlint), provided via
+the [spotless](https://github.com/pinterest/ktlint) Gradle plugin, and the bundled project
 IntelliJ codestyle.
 If you find that you can't commit changes due to a code style
 conflict, you can easily fix it by running: `./gradlew spotlessApply`.
