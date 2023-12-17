@@ -20,7 +20,7 @@ Here are some screenshots of the app:
 </p>
 
 - WelcomeScreen was inspired by the Imprint app
-* ExlorerScreen was inspired by the Instagram app
+* ExplorerScreen was inspired by the Instagram app
 
 ## Installation
 
