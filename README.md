@@ -4,6 +4,8 @@
 
 # Compozist 🚀
 
+Have you ever seen a list and told yourself, “Damn, how can I develop this in Jetpack Compose?”
+
 Compozist is a project that showcases various types of lists that can be created using Android
 Jetpack Compose. It aims to provide a sample for developers who want to learn how to use the Compose
 UI frame
@@ -20,6 +22,7 @@ Here are some screenshots of the app:
 </p>
 
 - WelcomeScreen was inspired by the Imprint app
+
 * ExplorerScreen was inspired by the Instagram app
 
 ## Installation
