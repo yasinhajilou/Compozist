@@ -19,8 +19,8 @@ Here are some screenshots of the app:
    <img src="https://github.com/yasinhajilou/Compozist/assets/41325533/5c693eb8-83bd-4ea8-ad8f-5c3b9f2a4105" width="160" height="300">
 </p>
 
-- WelcomeScreen has inspired by Imprint app
-* ExlorerScreen has inspired by Instagram app
+- WelcomeScreen was inspired by the Imprint app
+* ExlorerScreen was inspired by the Instagram app
 
 ## Installation
 
